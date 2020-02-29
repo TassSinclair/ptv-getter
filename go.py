@@ -11,11 +11,13 @@ BASE_URL='https://timetableapi.ptv.vic.gov.au'
 
 @app.route('/<path:path>')
 def forward(path):
-    pathWithDevid = '/{path}{paramSpacer}devid={devId}'.format(
+    pathWithDevid = '/{path}?devid={devId}{paramSpacer}{params}'.format(
         path = path,
-        paramSpacer = ('&' if ('?' in path) else '?'),
+        paramSpacer = ('&' if request.query_string else ''),
+        params = request.query_string.decode('utf-8'),
         devId = secrets.DEV_ID
     )
+
     signature = hmac.new(
         secrets.API_KEY.encode(),
         pathWithDevid.encode(),
