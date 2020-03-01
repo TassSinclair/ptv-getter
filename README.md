@@ -12,8 +12,8 @@ A tool for proxying requests to the [PTV Timetable API](https://www.ptv.vic.gov.
 
 If you cannot use `make`, just copy the commands from the `Makefile` directly.
 
-* Clone this repository
-* Copy `secrets.template.py` to `secrets.py` and add your `Dev Id` and `API Key` to the secrets file.
+1. Clone this repository
+2. Copy `secrets.template.py` to `secrets.py` and add your `Dev Id` and `API Key` to the secrets file.
 * To run it locally
   * Run `make run-locally`
 * To run the Docker container
@@ -32,5 +32,5 @@ PTV Getter is a Flask app that proxies incoming calls to the PTV Timetable API.
 2. PTV Getter appends `Dev Id` and uses `API Key` to calculate signature
    * eg. `?devid=0000000&signature=0000000000000000000000000000000000000000`
 3. PTV Getter forwards request to PTV Timetable API
-   * eg. `http://timetableapi.ptv.vic.gov.au/v3/route_types?devid=0000000&signature=0000000000000000000000000000000000000000`
+   * eg. `https://timetableapi.ptv.vic.gov.au/v3/route_types?devid=0000000&signature=0000000000000000000000000000000000000000`
 4. The PTV Timetable API response is returned directly
