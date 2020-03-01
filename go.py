@@ -31,7 +31,7 @@ def forward(path):
     )
 
     downstream = requests.request(
-        method=request.method, 
+        method = request.method, 
         url = url)
 
     return Response(downstream.content, downstream.status_code)
